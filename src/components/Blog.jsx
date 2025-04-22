@@ -12,10 +12,12 @@ const BlogPost = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [aiResponseLoading, setAiResponseLoading] = useState(false);
   const [tempComment, setTempComment] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchBlog = async () => {
       try {
+        setIsLoading(true);
         const res = await axios.get(`https://soulscript-backend.onrender.com/api/post/${slug}`);
         setBlog(res.data);
         if (res.data.comments) {
@@ -23,6 +25,8 @@ const BlogPost = () => {
         }
       } catch (error) {
         console.error("Error fetching blog:", error);
+      }finally{
+        setIsLoading(false);
       }
     };
     fetchBlog();

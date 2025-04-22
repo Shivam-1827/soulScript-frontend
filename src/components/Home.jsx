@@ -15,10 +15,11 @@ const Home = () => {
         const sorted = response.data.sort(
           (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
         );
-        setIsLoading(false);
         setBlogs(sorted);
       } catch (error) {
         console.error('Error fetching blogs:', error);
+      }finally{
+        setIsLoading(false);
       }
     };
 
