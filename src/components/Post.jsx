@@ -12,7 +12,7 @@ const Post = () => {
     e.preventDefault(); 
 
     try {
-      const response = await axios.post("http://localhost:3000/api/post", {
+      const response = await axios.post("https://soulscript-backend.onrender.com/api/post", {
         title,
         image,
         description,

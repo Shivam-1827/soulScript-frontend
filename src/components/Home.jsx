@@ -10,7 +10,7 @@ const Home = () => {
     const fetchBlogs = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get('http://localhost:3000/api/posts');
+        const response = await axios.get('https://soulscript-backend.onrender.com/api/posts');
         
         const sorted = response.data.sort(
           (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)

@@ -16,7 +16,7 @@ const BlogPost = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/post/${slug}`);
+        const res = await axios.get(`https://soulscript-backend.onrender.com/api/post/${slug}`);
         setBlog(res.data);
         if (res.data.comments) {
           setComments(res.data.comments);
@@ -52,7 +52,7 @@ const BlogPost = () => {
       
       setAiResponseLoading(true);
       
-      const response = await axios.post("http://localhost:3000/api/comment", {
+      const response = await axios.post("https://soulscript-backend.onrender.com/api/comment", {
         blog: blog._id,
         name: tempCommentObj.name,
         text: tempCommentObj.text
